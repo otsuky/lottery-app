@@ -5,10 +5,17 @@ export const addTodo = text => ({
   text
 })
 
-export const setVisibilityFilter = filter => ({
-  type: 'SET_VISIBILITY_FILTER',
-  filter
+// 使わなくなる予定
+// export const setVisibilityFilter = filter => ({
+//   type: 'SET_VISIBILITY_FILTER',
+//   filter
+// })
+
+export const pickupFilter = id => ({
+  type: 'PICKUP',
+  id
 })
+
 
 export const toggleTodo = id => ({
   type: 'TOGGLE_TODO',
@@ -19,4 +26,8 @@ export const VisibilityFilters = {
   SHOW_ALL: 'SHOW_ALL',
   SHOW_COMPLETED: 'SHOW_COMPLETED',
   SHOW_ACTIVE: 'SHOW_ACTIVE'
+}
+
+export const RandomFilter = {
+  SHOW_RANDOM: 'RANDOM_FILTER',
 }
