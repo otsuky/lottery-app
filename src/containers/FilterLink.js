@@ -1,27 +1,29 @@
 import { connect } from 'react-redux'
-// import { setVisibilityFilter } from '../actions'
 import Link from '../components/Link'
-import { pickupFilter } from '../actions'
-import todos from '../reducers/todos';
-
-const getRandomId = (state) => {
-  const randomId = Math.floor( Math.random() * state.todos.length);
-  console.log(state);
-  console.log(randomId);
-};
+import { pickupItem } from '../actions'
+import { randomSort } from '../actions'
 
 const mapStateToProps = (state, ownProps) => ({
   active: ownProps.filter === state.pickupFilter,
-  pickedUpId: getRandomId(state) || null
+  list: state.todos ? state.todos : null
 })
 
 
 const mapDispatchToProps = (dispatch, ownProps) => ({
-  // onClick: () => dispatch(pickupFilter(ownProps.randomId))
-  onClick: () => {
-    dispatch(pickupFilter(ownProps.randomId))
-  }
+  onClick: todos => {
+    switch (ownProps.randomType) {
+      case 'pickup':
+        const pickupId = Math.floor(Math.random() * todos.length);
 
+        dispatch(pickupItem(pickupId));
+        break;
+      case 'sort':
+        dispatch(randomSort());
+        break;
+      default:
+        break;
+    }
+  }
 })
 
 export default connect(
