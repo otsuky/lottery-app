@@ -1,16 +1,25 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import Todo from './Todo'
+import Table from '@material-ui/core/Table';
+import TableBody from '@material-ui/core/TableBody';
 
 const TodoList = ({ todos, toggleTodo }) => (
-  <ul>
-    {todos.map(todo => {
-      return (
-        <Todo key={todo.id} {...todo} onClick={() => toggleTodo(todo.id)} />
-      )})
+  <Table
+    style={{
+      width: '400px',
+      margin: '20px auto 0'
+    }}
+  >
+    <TableBody>
+      {todos.map(todo => {
+        return (
+          <Todo key={todo.id} {...todo} onClick={() => toggleTodo(todo.id)} />
+        )})
 
-    }
-  </ul>
+      }
+    </TableBody>
+  </Table>
 )
 
 TodoList.propTypes = {
