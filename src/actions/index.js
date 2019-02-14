@@ -11,9 +11,13 @@ export const addTodo = text => ({
 //   filter
 // })
 
-export const pickupFilter = id => ({
+export const pickupItem = id => ({
   type: 'PICKUP',
   id
+})
+
+export const randomSort = () => ({
+  type: 'SORTING',
 })
 
 
@@ -21,6 +25,10 @@ export const toggleTodo = id => ({
   type: 'TOGGLE_TODO',
   id
 })
+
+export const ShowList = {
+  type: 'SHOW_LIST',
+}
 
 export const VisibilityFilters = {
   SHOW_ALL: 'SHOW_ALL',
@@ -30,4 +38,5 @@ export const VisibilityFilters = {
 
 export const RandomFilter = {
   SHOW_RANDOM: 'RANDOM_FILTER',
+  SHOW_ALL: 'RANDOM_ALL',
 }

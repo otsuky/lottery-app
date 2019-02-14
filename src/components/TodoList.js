@@ -4,9 +4,12 @@ import Todo from './Todo'
 
 const TodoList = ({ todos, toggleTodo }) => (
   <ul>
-    {todos.map(todo => (
-      <Todo key={todo.id} {...todo} onClick={() => toggleTodo(todo.id)} />
-    ))}
+    {todos.map(todo => {
+      return (
+        <Todo key={todo.id} {...todo} onClick={() => toggleTodo(todo.id)} />
+      )})
+
+    }
   </ul>
 )
 
@@ -15,7 +18,8 @@ TodoList.propTypes = {
     PropTypes.shape({
       id: PropTypes.number.isRequired,
       completed: PropTypes.bool.isRequired,
-      text: PropTypes.string.isRequired
+      text: PropTypes.string.isRequired,
+      pickuped: PropTypes.bool.isRequired
     }).isRequired
   ).isRequired,
   toggleTodo: PropTypes.func.isRequired
